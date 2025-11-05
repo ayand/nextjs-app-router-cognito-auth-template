@@ -3,7 +3,8 @@
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { getCurrentUser, signOut } from 'aws-amplify/auth';
 
 function AuthContent() {
   const router = useRouter();
@@ -24,6 +25,41 @@ function AuthContent() {
 }
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+
+  useEffect(() => {
+    // Check if user is already authenticated on page load
+    const checkExistingAuth = async () => {
+      try {
+        const user = await getCurrentUser();
+        if (user) {
+          // User is already logged in, redirect to home
+          router.push('/');
+        }
+      } catch (error) {
+        // User is not authenticated, stay on login page
+      } finally {
+        setIsCheckingAuth(false);
+      }
+    };
+
+    checkExistingAuth();
+  }, [router]);
+
+  // Show loading while checking authentication status
+  if (isCheckingAuth) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-white via-blue-50 to-indigo-50">
+        <div className="text-center">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <p className="mt-4 text-slate-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-50 py-12">
       {/* Background decorative elements */}
