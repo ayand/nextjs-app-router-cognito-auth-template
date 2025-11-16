@@ -85,7 +85,13 @@ export default function LoginPage() {
 
         {/* Authenticator with custom styling */}
         <div className="w-full">
-          <Authenticator hideSignUp={false}>
+          <Authenticator 
+            hideSignUp={false}
+            loginMechanisms={['email']}
+            signUpAttributes={[
+              'name',
+            ]}
+          >
             {() => <AuthContent />}
           </Authenticator>
         </div>
