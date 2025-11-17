@@ -108,11 +108,11 @@ export default function LoginPage() {
         [data-amplify-authenticator] {
           --amplify-components-authenticator-router-box-shadow: none;
           --amplify-components-authenticator-router-border-width: 0;
-          --amplify-components-button-primary-background-color: rgb(37 99 235);
-          --amplify-components-button-primary-hover-background-color: rgb(29 78 216);
-          --amplify-components-fieldcontrol-focus-border-color: rgb(59 130 246);
-          --amplify-components-tabs-item-active-color: rgb(37 99 235);
-          --amplify-components-tabs-item-active-border-color: rgb(37 99 235);
+          --amplify-components-button-primary-background-color: rgb(34 197 94);
+          --amplify-components-button-primary-hover-background-color: rgb(22 163 74);
+          --amplify-components-fieldcontrol-focus-border-color: rgb(34 197 94);
+          --amplify-components-tabs-item-active-color: rgb(34 197 94);
+          --amplify-components-tabs-item-active-border-color: rgb(34 197 94);
           --amplify-colors-background-primary: transparent;
         }
 
@@ -134,7 +134,7 @@ export default function LoginPage() {
 
         [data-amplify-authenticator] .amplify-button--primary:hover {
           transform: scale(1.02);
-          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+          box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.3);
         }
 
         [data-amplify-authenticator] .amplify-input,
@@ -146,7 +146,7 @@ export default function LoginPage() {
 
         [data-amplify-authenticator] .amplify-input:focus,
         [data-amplify-authenticator] .amplify-select:focus {
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+          box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
         }
 
         [data-amplify-authenticator] .amplify-tabs {
@@ -164,12 +164,12 @@ export default function LoginPage() {
         }
 
         [data-amplify-authenticator] .amplify-button--link {
-          color: rgb(59 130 246);
+          color: rgb(34 197 94);
           font-weight: 500;
         }
 
         [data-amplify-authenticator] .amplify-button--link:hover {
-          color: rgb(37 99 235);
+          color: rgb(22 163 74);
         }
       `}</style>
     </div>
